@@ -1,7 +1,7 @@
 ﻿
 public class ProgrammaEventi
 
-    //Constructor
+//Constructor
 {
     public ProgrammaEventi(string titolo)
     {
@@ -24,9 +24,9 @@ public class ProgrammaEventi
     {
         List<Evento> nuovaLista = new List<Evento>();
 
-        foreach(Evento evento in ListaEventi)
+        foreach (Evento evento in ListaEventi)
         {
-            if(evento.Data == data)
+            if (evento.Data == data)
             {
                 nuovaLista.Add(evento);
             }
@@ -46,7 +46,7 @@ public class ProgrammaEventi
     //Restituisce quanti eventi sono presenti nel programma eventi attualmente
     public void ContatoreEventi()
     {
-        Console.WriteLine(ListaEventi.Count());
+        Console.WriteLine($"Il numero di eventi presenti nel programma è: {ListaEventi.Count()}");
     }
 
     //Svuota la lista degli eventi
@@ -60,13 +60,13 @@ public class ProgrammaEventi
     {
         string stringaEventi = "";
 
-        foreach(Evento evento in ListaEventi)
+        foreach (Evento evento in ListaEventi)
         {
-            stringaEventi = evento.ToString();
+            stringaEventi += evento.ToString();
         }
 
-        string titolo = Titolo + stringaEventi;
-        return titolo;
+        string str = Titolo + stringaEventi;
+        return str;
     }
 
 }
