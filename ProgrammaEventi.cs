@@ -69,5 +69,4 @@ public class ProgrammaEventi
         return titolo;
     }
 
-
 }
