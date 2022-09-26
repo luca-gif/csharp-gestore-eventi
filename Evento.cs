@@ -10,47 +10,49 @@ public class Evento
         PostiPrenotati = 0;
     }
 
+    public string titolo;
     public string Titolo { 
         get { return Titolo; } 
 
         set { 
             if (string.IsNullOrWhiteSpace(value)) {
                 throw new ArgumentException("Il titolo deve contenere almeno 3 caratteri");
-                Titolo = value;
+                titolo = value;
             } 
         } 
     }
 
+    public DateTime data;
     public DateTime Data
     {
-        get { return Data; }
+        get { return data; }
 
         set
         {
-            if (Data < DateTime.Now)
+            if (value < DateTime.Now)
             {
                 throw new ArgumentException("Inserisci una data valida");
-                Data = value;
+                data = value;
             }
         }
     }
     public int CapienzaMax { get; private set; }
     public int PostiPrenotati { get; private set; }
 
-    public int PrenotaPosti(int posti)
+    public void PrenotaPosti(int posti)
     {
-        if (Data < DateTime.Now) throw new ArgumentException("L'evento è terminato");
+        if (Data > DateTime.Now) throw new ArgumentException("L'evento è terminato");
         if (CapienzaMax <= PostiPrenotati + posti) throw new ArgumentException("Non ci sono più posti disponibili");
 
-        PostiPrenotati += posti;
-        return PostiPrenotati;
-    
+        CapienzaMax -= posti;
+        PostiPrenotati += posti;    
     }
 
-    public int DisdiciPosti(int posti)
+    public void DisdisciPosti(int posti)
     {
-        if (Data < DateTime.Now) throw new ArgumentException("L'evento è terminato");
-        return PostiPrenotati -= posti;
+        if (Data > DateTime.Now) throw new ArgumentException("L'evento è terminato");
+        CapienzaMax += posti;
+        PostiPrenotati -= posti;
     }
 
     public override string ToString()
