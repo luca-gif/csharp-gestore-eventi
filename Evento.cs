@@ -12,7 +12,7 @@ public class Evento
 
     public string titolo;
     public string Titolo { 
-        get { return Titolo; } 
+        get { return titolo; } 
 
         set { 
             if (string.IsNullOrWhiteSpace(value)) {

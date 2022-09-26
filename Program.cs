@@ -19,12 +19,13 @@ string prenotare = Console.ReadLine();
 
 if(prenotare == "si")
 {
-    //Chiedo all'utente quante prenotazioni vuole effettuare
+    //Chiedo all'utente quante prenotazioni vuole effettuare 
     Console.WriteLine("Quanti posti desideri prenotare?");
     int postiPrenotati = Convert.ToInt32(Console.ReadLine());
 
     mioEvento.PrenotaPosti(postiPrenotati);
 
+    //Stampo a schermo i dati relativi alle prenotazioni
     Console.WriteLine("Numero di posti disponibili " + (mioEvento.CapienzaMax));
     Console.WriteLine("Numero di posti prenotati " + (mioEvento.PostiPrenotati));
 }
@@ -38,10 +39,13 @@ string disdire = Console.ReadLine();
 
 if(disdire == "si")
 {
+    //Chiedo all'utente quante prenotazioni vuole disdire 
     Console.WriteLine("Quanti posti vuoi disdire?");
     int postiDaDisdire = Convert.ToInt32(Console.ReadLine());
 
     mioEvento.DisdisciPosti(postiDaDisdire);
+
+    //Stampo a schermo i dati relativi alle prenotazioni
     Console.WriteLine("Numero di posti disponibili " + (mioEvento.CapienzaMax));
     Console.WriteLine("Numero di posti prenotati " + (mioEvento.PostiPrenotati));
 }
